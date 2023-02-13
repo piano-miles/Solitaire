@@ -1,13 +1,16 @@
 from turtle import *
 from random import randint
 from copy import deepcopy
+import time
 
+title("Solitaire")
 screen = getscreen()
 screen.screensize(512, 512)
 
+
+#
 # Our Card class
-
-
+#
 class Card:
     # Our card has a suit, a number, and can be hidden or shown.
     def __init__(self, suit, number, hidden):  # Card constructor
@@ -118,3 +121,14 @@ for i in range(3):
     forward(10)
 
 update()
+
+
+def doSomething(x, y):
+    print(x, y)
+
+
+onscreenclick(doSomething)
+
+# Starts event loop (calling Tkinter’s mainloop function.)
+# Must be the last statement in a turtle graphics program.
+mainloop()

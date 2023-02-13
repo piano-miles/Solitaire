@@ -1,7 +1,8 @@
 from turtle import *
 from random import randint
 from copy import deepcopy
-
+import time
+title('Solitaire')
 screen = getscreen()
 screen.screensize(512, 512)
 
@@ -57,8 +58,8 @@ clear()
 tracer(0)
 penup()
 right(90)
-
 x = -100
+
 for stack in board:
     goto(x, 100)
     x += 30
@@ -83,10 +84,17 @@ for i in range(4):
 goto(-120, 80)
 color('#007710')
 write('***')
-
 goto(-120, 50)
+
 for i in range(3):
     write('***')
     forward(10)
 
 update()
+
+
+def doSomething(x, y): print(x, y)
+
+
+onscreenclick(doSomething)
+mainloop()
