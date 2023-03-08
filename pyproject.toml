@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "python-template"
 version = "0.1.0"
-description = ""
+description = "A solitaire game I am making with my students."
 authors = ["Miles Waugh"]
 
 [tool.poetry.dependencies]
