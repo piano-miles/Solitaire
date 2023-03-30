@@ -18,11 +18,7 @@ class Card:
         self.number = number
 
         # Hearts and diamonds are red
-        if suit == 'H' or suit == 'D':
-            self.color = 'red'
-        else:
-            self.color = 'black'
-
+        self.color = 'red' if suit in ['H', 'D'] else 'black'
         self.hidden = hidden
 
     def __str__(self):  # String format
@@ -30,7 +26,7 @@ class Card:
 
     def drawCard():  # Draw a card
         begin_poly()  # Begin the polygon
-        for i in range(2):  # Draw the card
+        for _ in range(2):
             forward(40)
             left(90)
             forward(20)
@@ -67,10 +63,7 @@ for i in range(7):
     for j in range(i):
         randomIndex = randint(0, len(allTheCards) - 1)
         k2 = deepcopy(allTheCards[randomIndex])
-        if (j < i - 1):
-            k2.hidden = True
-        else:
-            k2.hidden = False
+        k2.hidden = j < i - 1
         stack.append(k2)
         del allTheCards[randomIndex]
     board.append(stack)
@@ -94,11 +87,11 @@ for stack in board:
             color('#0010ff')
             write('***')
         else:
-            if card.color == 'red':
-                color('#ff0000')
             if card.color == 'black':
                 color('#000000')
 
+            elif card.color == 'red':
+                color('#ff0000')
             write(card)
 
         forward(20)
@@ -106,7 +99,7 @@ for stack in board:
 # Render slots on right
 goto(150, 80)
 color('#007710')
-for i in range(4):
+for _ in range(4):
     write('***')
     forward(30)
 
@@ -116,7 +109,7 @@ color('#007710')
 write('***')
 
 goto(-120, 50)
-for i in range(3):
+for _ in range(3):
     write('***')
     forward(10)
 
